@@ -27,6 +27,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
+    private fun setPoiClick(map: GoogleMap) {
+        map.setOnPoiClickListener {
+            val poiMarker = map.addMarker(
+                MarkerOptions()
+                    .position(it.latLng)
+                    .title(it.name)
+            )
+            poiMarker.showInfoWindow()
+        }
+    }
+
     private fun setMapLongClick(map:GoogleMap) {
 
         map.setOnMapLongClickListener {
@@ -60,6 +71,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         map.addMarker(MarkerOptions().position(homeLatLng))
 
         setMapLongClick(map)
+        setPoiClick(map)
 
     }
 
