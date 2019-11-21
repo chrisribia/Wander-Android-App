@@ -1,4 +1,4 @@
-# Wondor
+ 
 Self learning on Android Google Map
 
 In this Repo I created  a map and added markers programmatically, on long click, 
