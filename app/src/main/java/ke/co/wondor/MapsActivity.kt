@@ -26,6 +26,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
+    private fun setMapLongClick(map:GoogleMap) {
+        map.setOnMapLongClickListener {
+            map.addMarker(
+                MarkerOptions()
+                    .position(it)
+            )
+        }
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         val latitude = -4.0689664
@@ -35,6 +44,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val zoomLevel = 15f
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
         map.addMarker(MarkerOptions().position(homeLatLng))
+
+        setMapLongClick(map)
 
     }
 
